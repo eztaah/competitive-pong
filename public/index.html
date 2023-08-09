@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,
+        initial-scale=1.0">
+        <title>pong</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+    <body>
+
+        <div id="hide"></div>
+        <div id="game">
+
+            <!------------ hompage - endpage ------------>
+            <button class="unselectable" id="settingsButton"></button>
+            <p id="highScoreText">...</p>
+            <p id="readyText">...</p>
+            <button id="leaderboardButton">...</button>
+
+
+            <!------------ game ------------>
+            <div id="scoreValue">0</div>
+            <div id="ball"></div>
+            <div id="ghostBallBot"></div>
+            <div id="ghostBallPlayer"></div>
+            <div id="player"></div>
+            <div id="bot"></div>
+        </div>
+
+        <script src="/socket.io/socket.io.js"></script>
+        <script src="code.js"></script>
+    </body>
+</html>

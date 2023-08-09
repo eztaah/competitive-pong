@@ -1,0 +1,292 @@
+/*** fonts ***/
+@font-face {
+    font-family: "font";
+    src: url(./assets/font1.ttf);
+}
+
+
+.unselectable {
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/** body **/
+body {
+    margin: 0;
+    background: rgb(0, 0, 0);
+}
+
+/** game **/
+#hide {
+    height: 50px;
+    width: 850px;
+    border-bottom: 5px solid white;
+    background-color: black;
+    position: absolute;
+    z-index: 2;
+    top: 0px;
+    left: 90px;
+}
+
+#game {
+    width: 850px;
+    height: 550px;
+    margin: auto;
+    margin-top: 50px;
+    border-top: 5px solid white;
+    border-bottom: 5px solid white;
+    position: relative;
+}
+
+
+
+
+
+/*************************** homepage - endpage ***************************/
+
+/** home **/
+#settingsButton {
+    border: 1px solid transparent;
+    height: 60px;
+    width: 60px;
+    position: absolute;
+    background: url('./assets/settings.png') no-repeat;
+    background-size: 100%;
+    top: 10px;
+    left: 10px;
+    cursor: pointer;
+    transition: 0.5s;
+    z-index: 1;
+}
+
+
+#changeName {
+    color: black;
+    font-family: font;
+    font-size: 1rem;
+    height: 25px;
+    cursor: pointer;
+    position: absolute;
+    width: 130px;
+    top: 20px;
+    left: 20px;
+    transition: 0.5s;
+
+}
+#changeLanguage {
+    color: black;
+    font-family: font;
+    font-size: 1rem;
+    height: 25px;
+    cursor: pointer;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    transition: 0.5s;
+}
+
+#changeName:hover {
+    font-size: 1.1rem;
+}
+#changeLanguage:hover {
+    font-size: 1.1rem;
+}
+
+
+#coinsDiv {
+    border: 1px solid transparent;
+    height: 40px;
+    width: 120px;
+    position: absolute;
+    background-color: black;
+    top: 15px;
+    left: 770px;
+}
+#coinAmount {
+    color: white;
+    font-size: 1.6rem;
+    font-family: font;
+    position: relative;
+    margin: 8px 0 0 0 ;
+
+}
+#coinPicture {
+    background: url('./assets/coin.png') no-repeat;
+    background-size: 25px;
+    position: relative;
+    height: 30px;
+    width: 30px;
+    margin: -29px 0 0 50px;
+}
+#highScoreText {
+    position: relative;
+    margin: 20px auto 0;
+    font-size: 2.3rem;
+    color: white;
+    font-family: font;
+    text-align: center;
+    transition: 1s;
+}
+#readyText {
+    position: relative;
+    margin: 120px auto 0;
+    font-size: 1.4rem;
+    color: white;
+    font-family: font;
+    text-align: center;
+    transition: 1s;
+}
+#leaderboardButton {
+    position: relative;
+    height: 90px;
+    width: 120px;
+    border: 1px solid transparent;
+    cursor: pointer;
+    background: url('./assets/leaderboard.png') no-repeat;
+    background-size: 90px 80px;
+    background-position: 15px 7px;
+    transition: 0.2s;
+    color: white;
+    line-height: 200px;
+    font-size: 0.9rem;
+    font-family: font;
+    margin-top: 200px;
+    margin-left: 360px;
+}
+#leaderboardButton:hover {
+    background-size: 95px 85px;
+    background-position: 12.5px 2px;
+}
+
+
+
+
+
+
+
+
+
+/** enter name **/
+#enterNameDiv {
+    border: 4px solid white;
+    background-color: #191919;
+    position: relative;
+    height: 200px;
+    width: 400px;
+    margin: -400px auto;
+    z-index: 5;
+}
+#usernameMessage {
+    color: yellow;
+    position: relative;
+    margin: 25px auto 0px;
+    font-family: font;
+    text-align: center;
+    font-size: 1.5rem;
+}
+#textarea {
+    position: relative;
+    margin: 30px 0px 0px 30px;
+    width: 320px;
+    height: 32px;
+    font-size: 1rem;
+    font-family: font;
+    border: 3px solid black;
+    padding-left: 5px;
+}
+#errorMessage {
+    color: #191919;
+    position: relative;
+    margin: 5px 0px 0px 40px;
+    font-family: font;
+    text-align: left;
+    font-size: 0.8rem;
+    transition: 0.2s;
+}
+#submit {
+    position: relative;
+    margin: 12px 0px 0px 160px;
+    border: 1px solid yellow;
+    background-color: #191919;
+    color: yellow;
+    border-radius: 10px;
+    height: 40px;
+    width: 80px;
+    cursor: pointer;
+    font-family: font;
+    font-size: 0.9rem;
+    transition: 0.2s;
+}
+#submit:hover {
+    background-color: yellow;
+    color: #191919;
+}
+
+
+
+
+
+/*************************** game ***************************/
+#scoreValue {
+    position: absolute;
+    top: -100px;
+    width: 200px;
+    left: 325px;
+    font-size: 2rem;
+    color: yellow;
+    font-family: font;
+    text-align: center;
+    z-index: 2;
+    transition: 0.5s;
+}
+#ball{
+    background-color: white;
+    position: absolute;
+    border-radius: 20px;
+    height: 20px;
+    width: 20px;
+    left: 410px;
+    top: 260px;
+    z-index: 2;
+}
+#ghostBallBot{
+    position: absolute;
+    border: 1px solid transparent;
+    border-radius: 20px;
+    height: 20px;
+    width: 20px;
+}
+#ghostBallPlayer{
+    position: absolute;
+    border: 1px solid transparent;
+    border-radius: 20px;
+    height: 20px;
+    width: 20px;
+}
+
+#player {
+    height: 90px;
+    width: 10px;
+    position: absolute;
+    left: 10px;
+    top: 230px;
+    background-color: white;
+}
+#bot {
+    height: 90px;
+    width: 10px;
+    position: absolute;
+    left: 830px;
+    top: 230px;
+    background-color: white;
+}
+.trail {
+    width: 5px;
+    background-color: yellow;
+    position: absolute;
+    z-index: 1;
+    border-radius: 10px;
+}
