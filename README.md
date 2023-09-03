@@ -21,7 +21,6 @@ This game leverages JavaScript for game logic, Node.js and Express.js for server
 
 <br>
 <br>
-<br>
 
 </div>
 
