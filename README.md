@@ -17,11 +17,8 @@ This game leverages JavaScript for game logic, Node.js and Express.js for server
 
 ![Gameplay](./docs/github-assets/gameplay.gif)
 
-<br>
+<a href="https://competitive-pong.onrender.com/"> <img src="./docs/github-assets/play-button/play-button.png" height=30 hspace=1> </a>
 
-<a href="https://competitive-pong.onrender.com/"> <img src="./docs/github-assets/play-button/play-button.png" height=50 hspace=1> </a>
-
-<br>
 <br>
 <br>
 <br>
