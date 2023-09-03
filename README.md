@@ -12,6 +12,8 @@ Control the paddle using the `up-arrow` and `down-arrow` keys.
 This game leverages JavaScript for game logic, Node.js and Express.js for server-side operations, Socket.io for real-time client-server communication, and PostgreSQL for database management.
 
 <br>
+
+![Gameplay](https://github.com/EzTaah/competitive-pong/blob/main/docs/gameplay.gif)
 <br>
 <br>
 
