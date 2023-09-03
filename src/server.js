@@ -61,52 +61,53 @@ const getDatabase = async () => {
 
 io.on('connection', socket => {
     (async () => {
-        console.log("> New connection")
+        console.log("> A new client has logged in")
         //get the database
         await getDatabase();
+        socket.emit('server-ready');
+        console.log('> "server-ready" packet sent'); 
 
         //#region //////////////////////////// EVENTS ///////////////////////////
 
         /******* test-id *******/
         socket.on('test-id', async (uid) => {
-        console.log("> receive from client : test-id")
+        console.log('> "test-id" packet received from client');
 
-            let createNewData = true
-            for(let i=0 ; i<sqlDatabase.length ; i++) {
-                if(sqlDatabase[i].id == uid) {
-                    createNewData = false;
-                    socket.emit('transfer-index', i)
-                    console.log("> sent : transfer-index")
-
-                };
+        let createNewData = true
+        for(let i=0 ; i<sqlDatabase.length ; i++) {
+            if(sqlDatabase[i].id == uid) {
+                createNewData = false;
+                socket.emit('transfer-index', i)
+                console.log('> "transfer-index" packet sent'); 
             };
-            if(createNewData) {
-                await pool.query(`INSERT into data VALUES('${uid}', 'me', 0, 'english')`);
-                socket.emit('transfer-index', sqlDatabase.length);
-                console.log("> sent : transfer-index")
-
-            };
-            await getDatabase();
+        };
+        if(createNewData) {
+            await pool.query(`INSERT into data VALUES('${uid}', 'me', 0, 'english')`);
+            socket.emit('transfer-index', sqlDatabase.length);
+            console.log('> "transfer-index" packet sent'); 
+        };
+        await getDatabase();
         });
 
         /******* require-data *******/
         socket.on('require-data', async () => {
-            console.log("> receive from client : require-data")
+            console.log('> "require-data" packet received from client');
             await getDatabase()
             socket.emit('send-data', sqlDatabase);
-            console.log("> sent : send-data")
+            console.log('> "send-data" packet sent'); 
         });
 
         /******* set-new-highscore *******/
         socket.on('set-new-highscore', async array => {
-            console.log("> receive from client : set-new-highscore")
+            console.log('> "set-new-highscore" packet received from client');
             const score = array[0];
             const uid = array[1];
             await pool.query(`UPDATE data SET score = ${score} WHERE id = '${uid}'`);
         });
 
         socket.on('set-new-language', async array => {
-            console.log("> receive from client : set-new-language")
+            console.log('> "set-new-language" packet received from client');
+
             const language = array[0];
             const uid = array[1];
             await pool.query(`UPDATE data SET language = '${language}' WHERE id = '${uid}'`);
@@ -114,16 +115,17 @@ io.on('connection', socket => {
 
         /******* set-new-name *******/
         socket.on('set-new-name', async array => {
-            console.log("> receive from client : set-new-name")
+            console.log('> "set-new-name" packet received from client');
+
             const name = array[0];
             const uid = array[1];
             await pool.query(`UPDATE data SET name = '${name}' WHERE id = '${uid}'`);
         });
 
         socket.on('load-leaderboard', async () => {
-            console.log("> receive from client : load-leaderboard")
+            console.log('> "load-leaderboard" packet received from client');
             socket.emit('transfer-database', sqlDatabase)
-            console.log("> sent : transfer-database")
+            console.log('> "transfer-database" packet sent'); 
         });
 
         //#endregion //////////////////////////////////////////////////////////////////

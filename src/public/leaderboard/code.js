@@ -4,8 +4,7 @@ const container = document.querySelector('.container');
 setTimeout(() => {
     socket.emit('load-leaderboard');
     console.log("send : load-leaderboard")
-}, 4000)
-
+}, 500)
 
 
 

@@ -208,8 +208,6 @@ function changeLanguageFunction() {
         getEl('#changeLanguage').innerHTML = 'français'
         language = 'french'
         socket.emit('set-new-language', ['french', uid]);
-    console.log("send : set-new-language")
-
     } else {
         getEl('#highScoreText').innerHTML =`high score : ${sqlDatabase[myIndex].score}`;
         getEl('#readyText').innerHTML = 'press to start';
@@ -223,9 +221,8 @@ function changeLanguageFunction() {
         getEl('#changeLanguage').innerHTML = 'english'
         language = 'english'
         socket.emit('set-new-language', ['english', uid]);
-    console.log("send : set-new-language")
-
     }
+    console.log('> "set-new-language" packet sent');
 };
 function errorMessageFunction(text) {
     errorMessage.style.color = 'red';
@@ -272,7 +269,6 @@ function startGame() {
     playerMovementInterval = setInterval(playerMovement, 10);
 
     if(settingsType == 'open') {
-        console.log('hello')
         closeSettings()
     }
 };
@@ -317,8 +313,6 @@ function endGame() {
     //manage username
     if(sqlDatabase[myIndex].name == 'me') {
         //setup enterName box
-        console.log("my username is me")
-
         setTimeout(() => {
         createEnterNameDiv('join the ranking', 'enter a username')
         }, 1500)
@@ -567,24 +561,18 @@ function playerMovement() {
 
     if((upArrowPressed) && (aimAssistActivated) && (positionPlayer <= ghostPlayerPositionY)){
         positionPlayer -= 6;
-        console.log('slow')
     } else if ((upArrowPressed) && (aimAssistActivated) && (positionPlayer - ghostPlayerPositionY >= 100)) {
         positionPlayer -= 11;
-        console.log('fast')
     } else if (upArrowPressed){
         positionPlayer -= 7;
-        console.log('normal')
     }
 
     if((downArrowPressed) && (aimAssistActivated) && (positionPlayer + 90 >= ghostPlayerPositionY + 20)){
         positionPlayer += 6;
-        console.log('slow')
     } else if ((downArrowPressed) && (aimAssistActivated) && (positionPlayer + 90 - ghostPlayerPositionY -20 <= -100)) {
         positionPlayer += 11;
-        console.log('fast')
     } else if (downArrowPressed){
         positionPlayer += 7;
-        console.log('normal')
     }
     player.style.top = positionPlayer + 'px';
 };
@@ -606,7 +594,8 @@ function submitFunction() {
         errorMessageFunction('username too long');
     } else if(validate) {
         socket.emit('set-new-name', [name, uid]);
-        console.log("sent : set-new-name")
+        console.log('> "set-new-name" packet sent');
+
         document.querySelector('#game').removeChild(enterNameDiv);
         spaceBarPermission = true;
     };
@@ -641,12 +630,11 @@ uid += screen_info.height || '';
 uid += screen_info.width || '';
 uid += screen_info.pixelDepth || '';
 
-
-setTimeout(() => {
+socket.on('server-ready', data => {
+    console.log("> Server ready");
     socket.emit('test-id', uid);
-    console.log("sent : test-id", uid)
-}, 2000)
-
+    console.log('> "test-id" packet sent');
+});
 
 
 // // get high score 
@@ -704,14 +692,11 @@ input.addEventListener("click", () => input.blur());
 
 //#region //////////////////////// EVENTS ///////////////////////
 socket.on('send-data', data => {
-    console.log("receive from server : send-data")
+    console.log('> "send-data" packet received from server');
 
     sqlDatabase = data;
-    console.log(sqlDatabase);
-    console.log(myIndex)
 
     //update language
-    console.log(sqlDatabase)
     language = sqlDatabase[myIndex].language
     if(language == 'english') {
         getEl('#highScoreText').innerHTML =`high score : ${sqlDatabase[myIndex].score}`;
@@ -734,11 +719,11 @@ socket.on('send-data', data => {
 });
 
 socket.on('transfer-index', number => {
-    console.log("receive from server : transfer-index")
-    console.log("j ai mon id, je suis le ", number)
+    console.log('> "transfer-index" packet received from server');
+    console.log("My id is :", number)
     myIndex = number
     socket.emit('require-data');
-    console.log('send : require-data')
+    console.log('> "require-data" packet sent');    
 });
 
 //#endregion ////////////////////////////////////////////////////
