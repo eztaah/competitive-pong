@@ -1,9 +1,0 @@
-USE heroku_8744e5de78a1608;
-
-CREATE TABLE data (id VARCHAR(255), name VARCHAR(255), score int, language VARCHAR(255));
-
-- - INSERT into data VALUES('hd738hdh67h', 'Test', 18);
-- - SET SQL_SAFE_UPDATES = 0;
-- - DELETE FROM data WHERE name = 'anto';
-
-select * from data order by - score

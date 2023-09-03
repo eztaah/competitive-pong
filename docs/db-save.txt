@@ -1,0 +1,20 @@
+-------------------- DB SAVE 2022-11-06 ----------------------------
+
+INSERT INTO data (id, name, score, language)
+VALUES 
+('-', 'Julien4.0', 58, 'english'),
+('-', 'me', 51, 'english'),
+('-', 'Simon', 42, 'english'),
+('-', 'Julien3.0', 41, 'english'),
+('-', '*ty', 41, 'english'),
+('-', 'AnTo', 32, 'english'),
+('-', 'Paul.c', 32, 'english'),
+('-', 'julien', 31, 'english'),
+('-', '=><=', 23, 'english'),
+('-', 'cameleon', 16, 'english'),
+('-', 'Abdelamid', 13, 'english'),
+('-', 'alex11', 11, 'english'),
+('-', 'me', 6, 'english'),
+('-', 'charles', 3, 'english'),
+('-', 'BOUTRY', 2, 'english'),
+('-', 'test', 1, 'english');
