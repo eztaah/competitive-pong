@@ -1,48 +1,54 @@
-# PUBLISH ON RENDER
+# Publish on Render
+
+This guide outlines the steps for deploying the database and server on render.
+
+<br>
 
 
-## DATABASE
+## Database Deployment
 
-1. Create new PostgreSQl database on Render.  
+1. Initialize a new PostgreSQL database on render.
 
-2. Setup enviromnemt varaibles on the website with this key values :
-```
-DB_USER=database_user
-DB_HOST=dpg-heududb673hdgf5-a.frankfurt-postgres.render.com
-DB_NAME=database_name
-DB_PASS=password
-DB_PORT=5432
-```
+2. Set up the environment variables on the Render website. Use the following key-value pairs:
+    ```env
+    DB_USER=database_user
+    DB_HOST=dpg-heududb673hdgf5-a.frankfurt-postgres.render.com
+    DB_NAME=database_name
+    DB_PASS=password
+    DB_PORT=5432
+    ```
 
-3. Hit the connect button on the top right of the Render database page, and in the External connection page, copy the PSQL Command.
-It will be something like that :  
-``` PGPASSWORD=root psql -h dpg-cjq26heudu8kra6g-a.frankfurt-postgres.render.com -U database_user database_name ```
+3. Click the "Connect" button at the top-right corner of the Render database page. On the "External Connection" page, copy the PSQL Command displayed.
+    > It should look similar to:  
+    ```bash
+    PGPASSWORD=root psql -h dpg-cjq26heudu8kra6g-a.frankfurt-postgres.render.com -U database_user database_name
+    ```
 
-4. Open a PowerShell terminal and connect to the database with the previous link (but reformate it like so) : 
-```
-psql "host=dpg-cjq26heudu8kra6g-a.frankfurt-postgres.render.com user=database_user dbname=database_name password=root"
-```
+4. Open a PowerShell terminal and connect to the Render database using the above command, but reformatted as follows:
+    ```bash
+    psql "host=dpg-cjq26heudu8kra6g-a.frankfurt-postgres.render.com user=database_user dbname=database_name password=root"
+    ```
 
-5. Create the table :
-```
-CREATE TABLE data (id VARCHAR(255), name VARCHAR(255), score int, language VARCHAR(255));
-```
+5. Inside the PostgreSQl terminal, execute the SQL command to create the table.
+    ```sql
+    CREATE TABLE data (id VARCHAR(255), name VARCHAR(255), score INT, language VARCHAR(255));
+    ```
 
-6. Quit the programm
-```
-quit
-```
+6. Quit the PostgreSQL terminal.
+    ```bash
+    \q
+    ```
 
 <br>
 <br>
 
-## SERVER
-- Create a new web service with the following settings
-```
-Root Directory : ./
-Build Command : npm install
-Start Command : node src/server.js
-```
-<br> 
-<br>
 
+
+## Server Deployment
+
+Create a new web service on Render with the following settings:  
+```plaintext
+Root Directory: ./
+Build Command: npm install
+Start Command: node src/server.js
+```
