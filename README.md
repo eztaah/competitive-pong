@@ -55,7 +55,7 @@ The database and server for this project are hosted on [render](https://dashboar
     ```sql
     CREATE DATABASE competitive-pong-db;
     ```
-    Here is the SQL syntax for the standard commands used in this project :  [SQL Syntax Guide](./sql-syntax.md).   
+    Here is the SQL syntax for the standard commands used in this project :  [SQL Syntax Guide](./docs/documentation/sql-syntax.md).   
 
 <br>
 
@@ -93,7 +93,7 @@ The database and server for this project are hosted on [render](https://dashboar
 
 <br>
 
-10. **Replace the placeholders in the** `.env` **file with your actual credentials.**
+10. **Replace the placeholder password in the `.env` file with the postgres user password.**
     ```env
     DB_USER=postgres
     DB_HOST=localhost
@@ -108,11 +108,15 @@ The database and server for this project are hosted on [render](https://dashboar
 
 ## Running the Local Server
 
-1. **Open a PowerShell terminal and navigate to the project directory.**
+1. **Download and install [Nodejs](https://nodejs.org/en).** 
 
 <br>
 
-2. **Install all required Node.js dependencies by running:**
+2. **Open a PowerShell terminal and navigate to the project directory.**
+
+<br>
+
+3. **Install all required Node.js dependencies by running:**
     ```bash
     npm install
     ```
@@ -120,14 +124,14 @@ The database and server for this project are hosted on [render](https://dashboar
 
 <br>
 
-3. **Start the development server:**
+4. **Start the development server:**
     ```bash
     npm run dev
     ```
 
 <br>
 
-4. **Open a web browser and navigate to:**
+5. **Open a web browser and navigate to:**
     ```bash
     localhost:4000
     ```
@@ -135,4 +139,4 @@ The database and server for this project are hosted on [render](https://dashboar
 <br>
 <br>
 
--> To publish the server and database on Render, follow the guide: [Publish on Render](./publish-on-render.md).
+-> To publish the server and database on Render, follow the guide: [Publish on Render](./docs/documentation/publish-on-render.md).
